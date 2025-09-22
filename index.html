@@ -247,11 +247,13 @@
       }
 
       .law-header.law-1 {
-        background: linear-gradient(
-          135deg,
-          rgba(2, 132, 199, 0.1),
-          rgba(2, 132, 199, 0.05)
-        );
+        background: rgba(2, 132, 199, 0.2);
+        /* nền xanh nhạt rõ hơn */
+        backdrop-filter: blur(6px);
+        /* làm mờ nền phía sau để chữ rõ */
+        border: 1px solid rgba(2, 132, 199, 0.4);
+        box-shadow: 0 6px 16px rgba(2, 132, 199, 0.25);
+        /* đổ bóng để nổi */
       }
 
       .law-header.law-2 {
@@ -549,8 +551,10 @@
         <div class="hero-content scroll-reveal">
           <div class="badge">Triết học Biện chứng</div>
           <h1 class="main-title font-serif">
-            Quy luật Lượng - Chất trong Chủ nghĩa Duy vật Biện chứng
+            Quy luật Lượng - Chất<br />
+            trong Chủ nghĩa Duy vật Biện Chứng
           </h1>
+
           <p class="main-description">
             Khám phá quy luật từ những thay đổi về lượng dẫn đến những thay đổi
             về chất và ngược lại - một trong những quy luật cơ bản chi phối sự
@@ -579,14 +583,6 @@
     <!-- Tabs Section -->
     <section id="laws" class="tabs-section">
       <div class="container">
-        <div class="section-header scroll-reveal">
-          <h2 class="font-serif">Ba Quy luật Cơ bản</h2>
-          <p>
-            Mỗi quy luật đều có vai trò quan trọng trong việc giải thích bản
-            chất của sự vận động và phát triển
-          </p>
-        </div>
-
         <div class="tab-nav scroll-reveal">
           <!-- Removed two extra tabs, keeping only quantity-quality law and questions -->
           <button class="tab-button active" data-tab="law-1">
@@ -829,7 +825,7 @@
                   <h1 class="font-serif">
                     Mối quan hệ biện chứng giữa chất và lượng
                   </h1>
-                  <p class="collapsible-subtitle">Sự thống nhất và lẫn nhau</p>
+                  <p class="collapsible-subtitle">Sự thống nhất lẫn nhau</p>
                 </div>
                 <svg
                   class="expand-icon"
@@ -1153,11 +1149,12 @@
                           >Thứ ba, lựa chọn hình thức bước nhảy phù hợp:</strong
                         >
                         Cần căn cứ vào điều kiện khách quan và quy luật xã hội
-                        để biểu hiện ra trong hoạt động thực tiễn. Phải phát huy
-                        tính năng động chủ quan. Việc thực hiện bước nhảy phải
-                        tuân theo điều kiện khách quan, nhưng cần phải quyết tâm
-                        và nỗ lực để xác định quy mô và nhịp điệu bước nhảy một
-                        cách khách quan, khoa học, chống giáo điều, rập khuôn.
+                        để biểu hiện ra trong hoạt động thực tiễn và phải phát
+                        huy tính năng động chủ quan. Việc thực hiện bước nhảy
+                        phải tuân theo điều kiện khách quan, nhưng cần phải
+                        quyết tâm và nỗ lực để xác định quy mô và nhịp điệu bước
+                        nhảy một cách khách quan, khoa học, chống giáo điều, rập
+                        khuôn.
                       </p>
                     </div>
                     <div class="point-item">
@@ -1275,8 +1272,8 @@
                       ></div>
                       <p style="color: #334155; line-height: 1.6; margin: 0">
                         Hiện nay có một số bạn sinh viên dùng đủ mọi cách để
-                        pass môn, trọng bằng cấp, các bạn nghĩ rằng điều đó có
-                        thực sự giúp ích cho mỗi người không?
+                        pass môn, trọng bằng cấp, điều đó có thực sự giúp ích
+                        cho mỗi người không?
                       </p>
                     </div>
                     <div style="display: flex; align-items: flex-start">
@@ -1473,8 +1470,8 @@
                           margin: 0;
                         "
                       >
-                        Có một vài thành phần "giả chất", thùng rỗng kêu to,
-                        không có chuyên môn.
+                        Một vài thành phần "giả chất", thùng rỗng kêu to, không
+                        có chuyên môn.
                       </p>
                     </div>
                     <div style="display: flex; align-items: flex-start">
@@ -1600,9 +1597,9 @@
                           margin: 0;
                         "
                       >
-                        Nguồn nhân lực trẻ được đào tạo ngày càng nhiều, nhưng
-                        chưa được khai thác và sử dụng đúng mức, dẫn đến tình
-                        trạng dư thừa nhân lực tiềm năng.
+                        Nguồn nhân lực trẻ đang được đào tạo ngày càng nhiều,
+                        nhưng lại chưa được khai thác và sử dụng đúng hiệu quả,
+                        dẫn đến tình trạng dư thừa nhân lực tiềm năng lớn.
                       </p>
                     </div>
                   </div>
@@ -1621,7 +1618,7 @@
       <div class="container">
         <div class="conclusion-content scroll-reveal">
           <!-- Updated conclusion to reflect single law focus -->
-          <h2 class="font-serif">Ý nghĩa tổng thể</h2>
+          <h2 class="font-serif">Kết luận</h2>
           <p>
             Quy luật chuyển hóa từ lượng thành chất và ngược lại là một trong
             những quy luật cơ bản nhất của phép biện chứng duy vật, giúp chúng
