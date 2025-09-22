@@ -1,1038 +1,1427 @@
 <!DOCTYPE html>
 <html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Ba Quy luật Cơ bản của Chủ nghĩa Duy vật Biện chứng</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-        :root {
-            --primary: #0284c7;
-            --accent: #7c3aed;
-            --secondary: #f59e0b;
-            --background: #f5f5f4;
-            --foreground: #1e293b;
-            --muted: #6b7280;
-            --muted-foreground: #4b5563;
-            --card: #ffffff;
-            --border: #e5e7eb;
-            --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        }
+      :root {
+        --primary: #0284c7;
+        --accent: #7c3aed;
+        --secondary: #f59e0b;
+        --background: #f5f5f4;
+        --foreground: #1e293b;
+        --muted: #6b7280;
+        --muted-foreground: #4b5563;
+        --card: #ffffff;
+        --border: #e5e7eb;
+        --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
 
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.7;
-            color: var(--foreground);
-            background: var(--background);
-            scroll-behavior: smooth;
-        }
+      body {
+        font-family: "Inter", sans-serif;
+        line-height: 1.7;
+        color: var(--foreground);
+        background: var(--background);
+        scroll-behavior: smooth;
+      }
 
-        .font-serif {
-            font-family: 'Playfair Display', serif;
-        }
+      .font-serif {
+        font-family: "Playfair Display", serif;
+      }
 
-        .container {
-            max-width: 1280px;
-            margin: 0 auto;
-            padding: 0 1.5rem;
-        }
+      .container {
+        max-width: 1280px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+      }
 
-        /* Scroll Reveal Animation */
-        .scroll-reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: all 0.6s cubic-bezier(0.4, 1, 0.6, 1);
-        }
+      /* Scroll Reveal Animation */
+      .scroll-reveal {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s cubic-bezier(0.4, 1, 0.6, 1);
+      }
 
-        .scroll-reveal.revealed {
-            opacity: 1;
-            transform: translateY(0);
-        }
+      .scroll-reveal.revealed {
+        opacity: 1;
+        transform: translateY(0);
+      }
 
-        /* Hero Section */
-        .hero {
-            min-height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            position: relative;
-            background: linear-gradient(135deg, rgba(2, 132, 199, 0.1), rgba(124, 58, 237, 0.1));
+      /* Hero Section */
+      .hero {
+        min-height: 80vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        position: relative;
+        background: linear-gradient(
+          135deg,
+          rgba(2, 132, 199, 0.1),
+          rgba(124, 58, 237, 0.1)
+        );
+      }
+
+      .hero-content {
+        text-align: center;
+        padding: 2rem;
+      }
+
+      .badge {
+        display: inline-flex;
+        padding: 0.5rem 1.25rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        font-size: 0.875rem;
+        font-weight: 600;
+        margin-bottom: 1.5rem;
+        box-shadow: var(--shadow);
+      }
+
+      .hero h1 {
+        font-size: clamp(2.5rem, 6vw, 4rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+      }
+
+      .gradient-text {
+        background: linear-gradient(135deg, var(--primary), var(--accent));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .hero p {
+        font-size: 1.25rem;
+        color: var(--muted-foreground);
+        margin-bottom: 2rem;
+        max-width: 48rem;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-button {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        background: var(--primary);
+        color: white;
+        padding: 0.75rem 2rem;
+        border-radius: 0.75rem;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1rem;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+      }
+
+      .cta-button:hover {
+        background: #0369a1;
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(2, 132, 199, 0.3);
+      }
+
+      .arrow-down {
+        width: 1rem;
+        height: 1rem;
+        transition: transform 0.3s ease;
+      }
+
+      .cta-button:hover .arrow-down {
+        transform: translateY(3px);
+      }
+
+      /* Tabs Section */
+      .tabs-section {
+        padding: 4rem 0;
+      }
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+
+      .section-header h2 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        margin-bottom: 1rem;
+      }
+
+      .section-header p {
+        font-size: 1.125rem;
+        color: var(--muted-foreground);
+        max-width: 32rem;
+        margin: 0 auto;
+      }
+
+      .tab-nav {
+        display: flex;
+        justify-content: center;
+        gap: 0.75rem;
+        margin-bottom: 2rem;
+      }
+
+      .tab-button {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 0.75rem;
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--foreground);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: var(--shadow);
+        flex: 1;
+        max-width: 300px;
+        text-align: center;
+      }
+
+      .tab-button:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-2px);
+      }
+
+      .tab-button.active {
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 6px 16px rgba(2, 132, 199, 0.3);
+      }
+
+      .tab-content {
+        display: none;
+      }
+
+      .tab-content.active {
+        display: block;
+      }
+
+      .law-container {
+        margin-bottom: 4rem;
+      }
+
+      .law-header {
+        padding: 1.5rem;
+        border-radius: 1rem;
+        margin-bottom: 2rem;
+        display: flex;
+        align-items: flex-start;
+        gap: 1.5rem;
+        box-shadow: var(--shadow);
+      }
+
+      .law-header.law-1 {
+        background: linear-gradient(
+          135deg,
+          rgba(2, 132, 199, 0.1),
+          rgba(2, 132, 199, 0.05)
+        );
+      }
+
+      .law-header.law-2 {
+        background: linear-gradient(
+          135deg,
+          rgba(124, 58, 237, 0.1),
+          rgba(124, 58, 237, 0.05)
+        );
+      }
+
+      .law-header.law-3 {
+        background: linear-gradient(
+          135deg,
+          rgba(245, 158, 11, 0.1),
+          rgba(245, 158, 11, 0.05)
+        );
+      }
+
+      .law-icon {
+        flex-shrink: 0;
+        padding: 1rem;
+        background: var(--card);
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow);
+      }
+
+      .law-icon svg {
+        width: 2rem;
+        height: 2rem;
+        color: var(--primary);
+      }
+
+      .law-badge {
+        display: inline-block;
+        padding: 0.4rem 0.8rem;
+        border: 1px solid var(--border);
+        border-radius: 0.5rem;
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 0.75rem;
+      }
+
+      .law-title {
+        font-size: clamp(1.5rem, 3vw, 2rem);
+        font-weight: 700;
+        margin-bottom: 0.75rem;
+        line-height: 1.3;
+      }
+
+      .law-description {
+        font-size: 1rem;
+        color: var(--muted-foreground);
+      }
+
+      .content-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+      }
+
+      .content-card {
+        background: var(--card);
+        border-radius: 1rem;
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+      }
+
+      .content-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      }
+
+      .content-header {
+        margin-bottom: 1rem;
+      }
+
+      .content-title {
+        font-size: 1.5rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+      }
+
+      .content-subtitle {
+        font-size: 1rem;
+        color: var(--accent);
+        font-weight: 600;
+      }
+
+      .points-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .point-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.75rem;
+      }
+
+      .point-bullet {
+        width: 0.5rem;
+        height: 0.5rem;
+        background: var(--primary);
+        border-radius: 50%;
+        margin-top: 0.6rem;
+        flex-shrink: 0;
+      }
+
+      .point-text {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      /* Conclusion Section */
+      .conclusion {
+        padding: 4rem 0;
+        background: linear-gradient(
+          135deg,
+          rgba(243, 244, 246, 0.6),
+          rgba(229, 231, 235, 0.6)
+        );
+      }
+
+      .conclusion-content {
+        text-align: center;
+        max-width: 72rem;
+        margin: 0 auto;
+      }
+
+      .conclusion h2 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+      }
+
+      .conclusion p {
+        font-size: 1.25rem;
+        color: var(--muted-foreground);
+        margin-bottom: 2rem;
+      }
+
+      .summary-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 1.5rem;
+        margin-top: 2rem;
+      }
+
+      .summary-card {
+        padding: 1.5rem;
+        background: var(--card);
+        border-radius: 0.75rem;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+      }
+
+      .summary-card:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+      }
+
+      .summary-icon {
+        width: 2rem;
+        height: 2rem;
+        margin: 0 auto 1rem;
+      }
+
+      .summary-icon.icon-1 {
+        color: var(--primary);
+      }
+      .summary-icon.icon-2 {
+        color: var(--accent);
+      }
+      .summary-icon.icon-3 {
+        color: var(--secondary);
+      }
+
+      .summary-title {
+        font-weight: 700;
+        font-size: 1.125rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .summary-text {
+        color: var(--muted-foreground);
+        font-size: 0.95rem;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .law-header {
+          flex-direction: column;
+          text-align: center;
         }
 
         .hero-content {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        .badge {
-            display: inline-flex;
-            padding: 0.5rem 1.25rem;
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-bottom: 1.5rem;
-            box-shadow: var(--shadow);
-        }
-
-        .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .gradient-text {
-            background: linear-gradient(135deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--muted-foreground);
-            margin-bottom: 2rem;
-            max-width: 48rem;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .cta-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--primary);
-            color: white;
-            padding: 0.75rem 2rem;
-            border-radius: 0.75rem;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-        }
-
-        .cta-button:hover {
-            background: #0369a1;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(2, 132, 199, 0.3);
-        }
-
-        .arrow-down {
-            width: 1rem;
-            height: 1rem;
-            transition: transform 0.3s ease;
-        }
-
-        .cta-button:hover .arrow-down {
-            transform: translateY(3px);
-        }
-
-        /* Tabs Section */
-        .tabs-section {
-            padding: 4rem 0;
-        }
-
-        .section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-header h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-
-        .section-header p {
-            font-size: 1.125rem;
-            color: var(--muted-foreground);
-            max-width: 32rem;
-            margin: 0 auto;
-        }
-
-        .tab-nav {
-            display: flex;
-            justify-content: center;
-            gap: 0.75rem;
-            margin-bottom: 2rem;
-        }
-
-        .tab-button {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: 0.75rem;
-            padding: 0.75rem 1.5rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--foreground);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: var(--shadow);
-            flex: 1;
-            max-width: 300px;
-            text-align: center;
-        }
-
-        .tab-button:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        .tab-button.active {
-            background: var(--primary);
-            color: white;
-            box-shadow: 0 6px 16px rgba(2, 132, 199, 0.3);
-        }
-
-        .tab-content {
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-        }
-
-        .law-container {
-            margin-bottom: 4rem;
-        }
-
-        .law-header {
-            padding: 1.5rem;
-            border-radius: 1rem;
-            margin-bottom: 2rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 1.5rem;
-            box-shadow: var(--shadow);
-        }
-
-        .law-header.law-1 {
-            background: linear-gradient(135deg, rgba(2, 132, 199, 0.1), rgba(2, 132, 199, 0.05));
-        }
-
-        .law-header.law-2 {
-            background: linear-gradient(135deg, rgba(124, 58, 237, 0.1), rgba(124, 58, 237, 0.05));
-        }
-
-        .law-header.law-3 {
-            background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(245, 158, 11, 0.05));
-        }
-
-        .law-icon {
-            flex-shrink: 0;
-            padding: 1rem;
-            background: var(--card);
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow);
-        }
-
-        .law-icon svg {
-            width: 2rem;
-            height: 2rem;
-            color: var(--primary);
-        }
-
-        .law-badge {
-            display: inline-block;
-            padding: 0.4rem 0.8rem;
-            border: 1px solid var(--border);
-            border-radius: 0.5rem;
-            font-size: 0.85rem;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-        }
-
-        .law-title {
-            font-size: clamp(1.5rem, 3vw, 2rem);
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-            line-height: 1.3;
-        }
-
-        .law-description {
-            font-size: 1rem;
-            color: var(--muted-foreground);
+          padding: 0 1rem;
         }
 
         .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+          grid-template-columns: 1fr;
         }
 
-        .content-card {
-            background: var(--card);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
+        .tab-nav {
+          flex-direction: column;
+          align-items: center;
+          gap: 0.5rem;
         }
 
-        .content-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+        .tab-button {
+          max-width: 100%;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero h1 {
+          font-size: clamp(2rem, 6vw, 3rem);
         }
 
-        .content-header {
-            margin-bottom: 1rem;
+        .hero p {
+          font-size: 1rem;
         }
 
-        .content-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
+        .section-header h2 {
+          font-size: clamp(1.75rem, 5vw, 2.5rem);
         }
-
-        .content-subtitle {
-            font-size: 1rem;
-            color: var(--accent);
-            font-weight: 600;
-        }
-
-        .points-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .point-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.75rem;
-        }
-
-        .point-bullet {
-            width: 0.5rem;
-            height: 0.5rem;
-            background: var(--primary);
-            border-radius: 50%;
-            margin-top: 0.6rem;
-            flex-shrink: 0;
-        }
-
-        .point-text {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
-        /* Conclusion Section */
-        .conclusion {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, rgba(243, 244, 246, 0.6), rgba(229, 231, 235, 0.6));
-        }
-
-        .conclusion-content {
-            text-align: center;
-            max-width: 72rem;
-            margin: 0 auto;
-        }
-
-        .conclusion h2 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-        }
-
-        .conclusion p {
-            font-size: 1.25rem;
-            color: var(--muted-foreground);
-            margin-bottom: 2rem;
-        }
-
-        .summary-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .summary-card {
-            padding: 1.5rem;
-            background: var(--card);
-            border-radius: 0.75rem;
-            box-shadow: var(--shadow);
-            transition: all 0.3s ease;
-        }
-
-        .summary-card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-        }
-
-        .summary-icon {
-            width: 2rem;
-            height: 2rem;
-            margin: 0 auto 1rem;
-        }
-
-        .summary-icon.icon-1 { color: var(--primary); }
-        .summary-icon.icon-2 { color: var(--accent); }
-        .summary-icon.icon-3 { color: var(--secondary); }
-
-        .summary-title {
-            font-weight: 700;
-            font-size: 1.125rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .summary-text {
-            color: var(--muted-foreground);
-            font-size: 0.95rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .law-header {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .hero-content {
-                padding: 0 1rem;
-            }
-
-            .content-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .tab-nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 0.5rem;
-            }
-
-            .tab-button {
-                max-width: 100%;
-            }
-        }
-
-        @media (max-width: 640px) {
-            .hero h1 {
-                font-size: clamp(2rem, 6vw, 3rem);
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-header h2 {
-                font-size: clamp(1.75rem, 5vw, 2.5rem);
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <div class="hero-content scroll-reveal">
-                <div class="badge">Triết học Biện chứng</div>
-                <h1 class="font-serif">
-                    Ba Quy luật Cơ bản của 
-                    <span class="gradient-text">Chủ nghĩa Duy vật Biện chứng</span>
-                </h1>
-                <p>Khám phá những quy luật cơ bản chi phối sự vận động và phát triển của thế giới khách quan</p>
-                <a href="#laws" class="cta-button">
-                    Khám phá ngay
-                    <svg class="arrow-down" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-                    </svg>
-                </a>
-            </div>
+      <div class="container">
+        <div class="hero-content scroll-reveal">
+          <div class="badge">Triết học Biện chứng</div>
+          <h1 class="font-serif">
+            Ba Quy luật Cơ bản của
+            <span class="gradient-text">Chủ nghĩa Duy vật Biện chứng</span>
+          </h1>
+          <p>
+            Khám phá những quy luật cơ bản chi phối sự vận động và phát triển
+            của thế giới khách quan
+          </p>
+          <a href="#laws" class="cta-button">
+            Khám phá ngay
+            <svg
+              class="arrow-down"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M19 14l-7 7m0 0l-7-7m7 7V3"
+              ></path>
+            </svg>
+          </a>
         </div>
+      </div>
     </section>
 
     <!-- Tabs Section -->
     <section id="laws" class="tabs-section">
-        <div class="container">
-            <div class="section-header scroll-reveal">
-                <h2 class="font-serif">Ba Quy luật Cơ bản</h2>
-                <p>Mỗi quy luật đều có vai trò quan trọng trong việc giải thích bản chất của sự vận động và phát triển</p>
-            </div>
-
-            <div class="tab-nav scroll-reveal">
-                <button class="tab-button active" data-tab="law-1">Quy luật Lượng - Chất</button>
-                <button class="tab-button" data-tab="law-2">Quy luật Mâu thuẫn</button>
-                <button class="tab-button" data-tab="law-3">Quy luật Phủ định kép</button>
-            </div>
-
-            <!-- Tab Content: Law 1 -->
-            <div class="tab-content active" id="law-1">
-                <div class="law-container">
-                    <div class="law-header law-1 scroll-reveal">
-                        <div class="law-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <div class="law-badge">Quy luật 1</div>
-                            <h3 class="law-title font-serif">Quy luật chuyển hóa từ những thay đổi về lượng thành những thay đổi về chất và ngược lại</h3>
-                            <p class="law-description">Quy luật chỉ ra cách thức vận động và phát triển chung nhất của sự vật, hiện tượng thông qua mối quan hệ biện chứng giữa lượng và chất.</p>
-                        </div>
-                    </div>
-
-                    <div class="content-grid">
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Tên và Khái quát về Quy luật</h4>
-                                <p class="content-subtitle">Cách thức vận động và phát triển</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Sự thay đổi về chất chỉ xảy ra khi sự vật, hiện tượng đã tích lũy đủ những thay đổi về lượng để đạt đến một ngưỡng nhất định.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Sự phát triển là sự kết hợp giữa quá trình thay đổi từ từ, tuần tự về lượng với những bước thay đổi nhảy vọt về chất, tạo ra cả những bước tiến tuần tự và những bước đột phá vượt bậc.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Theo Ăngghen, trong tự nhiên, những biến đổi về chất chỉ có thể xảy ra thông qua việc thêm vào hay bớt đi một số lượng vật chất hoặc vận động nhất định.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Các Khái niệm Cơ bản</h4>
-                                <p class="content-subtitle">Chất và Lượng</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Chất:</strong> Là khái niệm dùng để chỉ tính quy định khách quan vốn có của sự vật, là sự thống nhất hữu cơ của các thuộc tính, yếu tố tạo nên sự vật, làm cho nó là nó chứ không phải là cái khác. Chất trả lời cho câu hỏi "sự vật đó là gì?" và giúp phân biệt nó với sự vật khác.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Đặc điểm của Chất:</strong> Có tính ổn định tương đối. Mỗi sự vật có thể có nhiều chất, tương ứng với các giai đoạn tồn tại và phát triển khác nhau của nó.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Mối quan hệ với sự vật:</strong> Chất và sự vật có mối quan hệ chặt chẽ, không tách rời. Chất của sự vật được biểu hiện qua các thuộc tính của nó.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Yếu tố quyết định Chất:</strong> Bao gồm thuộc tính cơ bản (chỉ khi thuộc tính cơ bản thay đổi hoặc mất đi thì sự vật mới thay đổi hay mất đi) và phương thức liên kết giữa các yếu tố. Ví dụ: Kim cương và than chì đều từ carbon nhưng khác nhau do phương thức liên kết.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Lượng:</strong> Là khái niệm dùng để chỉ tính quy định vốn có của sự vật về các mặt như quy mô, trình độ phát triển, số lượng các thuộc tính, tổng số các bộ phận, tốc độ vận động, màu sắc...</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Đặc điểm của Lượng:</strong> Có tính khách quan, có thể đo đếm được hoặc nhận biết bằng năng lực trừu tượng hóa trong tư duy.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Tính tương đối:</strong> Sự phân biệt giữa chất và lượng chỉ có ý nghĩa tương đối, tùy theo mối quan hệ mà một yếu tố có thể là lượng hoặc chất.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Mối quan hệ biện chứng giữa Lượng và Chất</h4>
-                                <p class="content-subtitle">Sự thống nhất và chuyển hóa</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Độ:</strong> Là giới hạn mà trong đó, sự thay đổi về lượng chưa làm thay đổi căn bản về chất, sự vật vẫn là nó.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Điểm nút:</strong> Là điểm giới hạn mà tại đó, sự thay đổi về lượng đã đủ để làm cho chất của sự vật thay đổi, chuyển thành chất mới. Đây là thời điểm bắt đầu xảy ra bước nhảy.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Bước nhảy:</strong> Là giai đoạn chuyển hóa cơ bản về chất của sự vật, do những thay đổi về lượng trước đó gây ra. Nó là sự gián đoạn trong quá trình vận động liên tục của sự vật.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Tác động ngược:</strong> Khi chất mới ra đời, nó sẽ tác động trở lại, tạo ra một lượng mới phù hợp để có sự thống nhất mới giữa chất và lượng.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Quá trình tác động qua lại liên tục giữa lượng và chất tạo nên sự vận động không ngừng của sự vật.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Các hình thức của Bước nhảy và Ý nghĩa</h4>
-                                <p class="content-subtitle">Hình thức và phương pháp luận</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Bước nhảy toàn bộ:</strong> Làm thay đổi tất cả các mặt, yếu tố của sự vật.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Bước nhảy cục bộ:</strong> Chỉ làm thay đổi một số mặt, yếu tố của sự vật.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Bước nhảy tức thời:</strong> Chất của sự vật biến đổi nhanh chóng ở tất cả các bộ phận.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Bước nhảy dần dần:</strong> Quá trình thay đổi về chất diễn ra bằng cách tích lũy dần các yếu tố của chất mới và loại bỏ dần yếu tố của chất cũ.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Ý nghĩa phương pháp luận:</strong> Phải tích lũy về lượng để tạo biến đổi về chất, thực hiện bước nhảy khi điều kiện chín muồi, kết hợp khách quan và chủ quan, chú ý phương thức liên kết giữa các yếu tố.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tab Content: Law 2 -->
-            <div class="tab-content" id="law-2">
-                <div class="law-container">
-                    <div class="law-header law-2 scroll-reveal">
-                        <div class="law-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <div class="law-badge">Quy luật 2</div>
-                            <h3 class="law-title font-serif">Quy luật Thống nhất và Đấu tranh của các Mặt đối lập</h3>
-                            <p class="law-description">Quy luật chỉ ra nguồn gốc nội tại của sự vận động và phát triển thông qua mâu thuẫn giữa các mặt đối lập trong sự vật.</p>
-                        </div>
-                    </div>
-
-                    <div class="content-grid">
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Mở đầu</h4>
-                                <p class="content-subtitle">Nguồn gốc của sự vận động</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Trong phép biện chứng duy vật, có ba quy luật cơ bản. Trong đó, quy luật Thống nhất và Đấu tranh của các Mặt đối lập được coi là nền tảng nhất.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Nó giúp chúng ta hiểu vì sao sự vật trong thế giới luôn vận động và phát triển.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Quy luật này chỉ ra rằng chính mâu thuẫn bên trong là nguồn gốc tạo nên sự thay đổi.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Mâu thuẫn là gì?</h4>
-                                <p class="content-subtitle">Khái niệm và ví dụ</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Mâu thuẫn không phải chỉ là sự “cãi vã” trong đời sống thường ngày.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div hed">
-                                    <p class="point-text">Mâu thuẫn là sự tác động qua lại giữa hai mặt trái ngược nhưng lại cùng tồn tại trong một sự vật.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Ví dụ: Trong xã hội luôn có tiến bộ và lạc hậu, trong tự nhiên có âm – dương, nóng – lạnh…</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Chính sự đối lập ấy tạo nên sự phát triển.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Thống nhất và Đấu tranh</h4>
-                                <p class="content-subtitle">Mối quan hệ giữa hai mặt</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Thống nhất:</strong> Hai mặt đối lập cần nhau để tồn tại. Không có nóng thì cũng chẳng biết thế nào là lạnh. Sự thống nhất này chỉ mang tính tạm thời, tương đối.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Đấu tranh:</strong> Là quá trình hai mặt liên tục phủ định nhau, loại trừ nhau. Đây là yếu tố tuyệt đối, diễn ra không ngừng.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Nhờ đấu tranh, sự vật mới phá vỡ cái cũ để phát triển thành cái mới.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Lênin: “Sự phát triển chính là cuộc đấu tranh giữa các mặt đối lập.”</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Quá trình vận động của sự vật</h4>
-                                <p class="content-subtitle">Chu trình phát triển</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Trong mỗi sự vật xuất hiện mâu thuẫn.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Hai mặt đối lập đấu tranh gay gắt.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Trong một thời điểm nào đó, chúng đạt đến sự thống nhất tạm thời.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Khi mâu thuẫn lên đến đỉnh điểm, thống nhất cũ bị phá vỡ, sự vật chuyển hóa thành cái mới.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Các loại mâu thuẫn</h4>
-                                <p class="content-subtitle">Phân loại mâu thuẫn</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Cơ bản và không cơ bản:</strong> Cơ bản thì gắn với bản chất, quyết định sự tồn tại; không cơ bản chỉ ảnh hưởng ở một vài mặt.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Chủ yếu và thứ yếu:</strong> Chủ yếu là mâu thuẫn quan trọng nhất trong một giai đoạn, còn thứ yếu chỉ đóng vai trò hỗ trợ. Chúng có thể thay đổi vị trí cho nhau.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Bên trong và bên ngoài:</strong> Bên trong là giữa các yếu tố cấu thành sự vật, giữ vai trò quyết định; bên ngoài là tác động từ môi trường.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Ý nghĩa phương pháp luận và Kết luận</h4>
-                                <p class="content-subtitle">Ứng dụng và ý nghĩa</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Muốn hiểu một sự vật, hãy tìm mâu thuẫn trong nó.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Muốn giải quyết vấn đề, phải phân tích đúng mâu thuẫn chủ yếu và chọn cách giải quyết phù hợp.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Luôn nhìn nhận sự vật trong trạng thái vận động, phát triển, tránh cái nhìn một chiều hay nóng vội.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Kết luận:</strong> Mâu thuẫn là nguồn gốc của vận động. Thống nhất chỉ mang tính tạm thời, còn đấu tranh là tuyệt đối.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Nhờ hiểu quy luật này, chúng ta có cái nhìn khoa học hơn về tự nhiên, xã hội và cả trong cách xử lý công việc hằng ngày.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Tab Content: Law 3 -->
-            <div class="tab-content" id="law-3">
-                <div class="law-container">
-                    <div class="law-header law-3 scroll-reveal">
-                        <div class="law-icon">
-                            <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                            </svg>
-                        </div>
-                        <div>
-                            <div class="law-badge">Quy luật 3</div>
-                            <h3 class="law-title font-serif">Quy luật Phủ định của Phủ định</h3>
-                            <p class="law-description">Quy luật phản ánh xu hướng vận động, phát triển đi lên của sự vật, hiện tượng theo hình xoắn ốc, kế thừa và tiến bộ.</p>
-                        </div>
-                    </div>
-
-                    <div class="content-grid">
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Vị trí của Quy luật</h4>
-                                <p class="content-subtitle">Vai trò trong phép biện chứng</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Trong phép biện chứng duy vật, có ba quy luật cơ bản: Thống nhất và Đấu tranh, Lượng - Chất, và Phủ định của Phủ định.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Quy luật phủ định của phủ định không tồn tại riêng lẻ, mà gắn chặt với hai quy luật kia.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Phản ánh xu hướng vận động, phát triển đi lên của sự vật, hiện tượng.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Khái niệm Phủ định biện chứng</h4>
-                                <p class="content-subtitle">Sự tự phủ định và kế thừa</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Phủ định biện chứng là sự tự phủ định do mâu thuẫn nội tại của sự vật gây ra.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Không phải “xóa sạch sẽ”, mà loại bỏ cái lạc hậu, đồng thời giữ lại những yếu tố hợp lý, tích cực.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Là mắt xích trung gian trong sự phát triển, nối cái cũ với cái mới.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Ví dụ: Hạt lúa mọc thành cây → cây lúa trổ bông → cây chết đi để lại hạt thóc mới, kế thừa bản chất di truyền nhưng ở vòng phát triển cao hơn.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Các đặc điểm của Phủ định biện chứng</h4>
-                                <p class="content-subtitle">Tính chất nổi bật</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Tính khách quan:</strong> Xảy ra do mâu thuẫn bên trong sự vật, không phụ thuộc ý chí con người.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Tính kế thừa:</strong> Chọn lọc, giữ lại những yếu tố phù hợp từ cái cũ để phát triển cái mới.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Tính phổ biến:</strong> Diễn ra trong tự nhiên, xã hội, và tư duy.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Tính đa dạng - phong phú:</strong> Sự phát triển diễn ra thành những vòng, sau ít nhất hai lần phủ định sẽ hình thành một chu kỳ mới.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Kế thừa biện chứng</h4>
-                                <p class="content-subtitle">Sự chọn lọc và cải tạo</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Không phải giữ nguyên cái cũ (“kế thừa siêu hình”), mà loại bỏ cái lạc hậu, không phù hợp.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Giữ lại và cải tạo những yếu tố hợp lý của cái cũ.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Cái mới vừa có tính mới, vừa gắn bó với cái cũ.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Ví dụ: Chế độ phong kiến → tư bản → xã hội cộng sản, mỗi giai đoạn kế thừa thành tựu trước đó (khoa học, sản xuất hàng hóa…).</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Hình thức phát triển: Đường xoáy ốc</h4>
-                                <p class="content-subtitle">Tiến bộ không tuyến tính</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Phát triển không đi theo đường thẳng, cũng không quay vòng tròn y nguyên.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Diễn ra theo đường xoáy ốc: Có sự lặp lại những đặc điểm cũ, nhưng trên nền tảng cao hơn.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Lênin: “Sự phát triển giống như lặp lại những giai đoạn đã qua, nhưng ở một hình thức khác, cao hơn.”</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Ví dụ: Trong khoa học, lý thuyết mới (Einstein) kế thừa một phần từ lý thuyết cũ (Newton) nhưng ở mức cao hơn.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="content-card scroll-reveal">
-                            <div class="content-header">
-                                <h4 class="content-title font-serif">Nội dung và Ý nghĩa của Quy luật</h4>
-                                <p class="content-subtitle">Quá trình và phương pháp luận</p>
-                            </div>
-                            <div class="points-list">
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Mỗi sự vật phát triển qua ít nhất hai lần phủ định: Phủ định lần 1 biến cái cũ thành cái đối lập; Phủ định lần 2 tạo cái mới, chứa yếu tố tích cực của cái ban đầu nhưng tiến bộ hơn.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Sự vật mới dường như trở lại điểm xuất phát, nhưng thực chất cao hơn, tiến bộ hơn.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Phủ định biện chứng là một giai đoạn trong quá trình phát triển, dẫn đến sự ra đời của sự vật mới theo đường xoáy trôn ốc.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text"><strong>Ý nghĩa phương pháp luận:</strong> Phát triển là xu hướng tất yếu, đi lên, quanh co, phức tạp, không thẳng tắp, có thể có thụt lùi.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Cần ủng hộ cái mới, tạo điều kiện cho nó phát triển, và kế thừa có chọn lọc giá trị tích cực của cái cũ.</p>
-                                </div>
-                                <div class="point-item">
-                                    <div class="point-bullet"></div>
-                                    <p class="point-text">Trong xã hội, sự phát triển gắn với ý thức và hành động có mục đích của con người, khác với sự phát triển tự phát trong tự nhiên.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+      <div class="container">
+        <div class="section-header scroll-reveal">
+          <h2 class="font-serif">Ba Quy luật Cơ bản</h2>
+          <p>
+            Mỗi quy luật đều có vai trò quan trọng trong việc giải thích bản
+            chất của sự vận động và phát triển
+          </p>
         </div>
+
+        <div class="tab-nav scroll-reveal">
+          <button class="tab-button active" data-tab="law-1">
+            Quy luật Lượng - Chất
+          </button>
+          <button class="tab-button" data-tab="law-2">
+            Quy luật Mâu thuẫn
+          </button>
+          <button class="tab-button" data-tab="law-3">
+            Quy luật Phủ định kép
+          </button>
+        </div>
+
+        <!-- Tab Content: Law 1 -->
+        <div class="tab-content active" id="law-1">
+          <div class="law-container">
+            <div class="law-header law-1 scroll-reveal">
+              <div class="law-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <div class="law-badge">Quy luật 1</div>
+                <h3 class="law-title font-serif">
+                  Quy luật chuyển hóa từ những thay đổi về lượng thành những
+                  thay đổi về chất và ngược lại
+                </h3>
+                <p class="law-description">
+                  Quy luật chỉ ra cách thức vận động và phát triển chung nhất
+                  của sự vật, hiện tượng thông qua mối quan hệ biện chứng giữa
+                  lượng và chất.
+                </p>
+              </div>
+            </div>
+
+            <div class="content-grid">
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">
+                    Tên và Khái quát về Quy luật
+                  </h4>
+                  <p class="content-subtitle">
+                    Cách thức vận động và phát triển
+                  </p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Sự thay đổi về chất chỉ xảy ra khi sự vật, hiện tượng đã
+                      tích lũy đủ những thay đổi về lượng để đạt đến một ngưỡng
+                      nhất định.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Sự phát triển là sự kết hợp giữa quá trình thay đổi từ từ,
+                      tuần tự về lượng với những bước thay đổi nhảy vọt về chất,
+                      tạo ra cả những bước tiến tuần tự và những bước đột phá
+                      vượt bậc.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Theo Ăngghen, trong tự nhiên, những biến đổi về chất chỉ
+                      có thể xảy ra thông qua việc thêm vào hay bớt đi một số
+                      lượng vật chất hoặc vận động nhất định.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">Các Khái niệm Cơ bản</h4>
+                  <p class="content-subtitle">Chất và Lượng</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Chất:</strong> Là khái niệm dùng để chỉ tính quy
+                      định khách quan vốn có của sự vật, là sự thống nhất hữu cơ
+                      của các thuộc tính, yếu tố tạo nên sự vật, làm cho nó là
+                      nó chứ không phải là cái khác. Chất trả lời cho câu hỏi
+                      "sự vật đó là gì?" và giúp phân biệt nó với sự vật khác.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Đặc điểm của Chất:</strong> Có tính ổn định tương
+                      đối. Mỗi sự vật có thể có nhiều chất, tương ứng với các
+                      giai đoạn tồn tại và phát triển khác nhau của nó.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Mối quan hệ với sự vật:</strong> Chất và sự vật có
+                      mối quan hệ chặt chẽ, không tách rời. Chất của sự vật được
+                      biểu hiện qua các thuộc tính của nó.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Yếu tố quyết định Chất:</strong> Bao gồm thuộc
+                      tính cơ bản (chỉ khi thuộc tính cơ bản thay đổi hoặc mất
+                      đi thì sự vật mới thay đổi hay mất đi) và phương thức liên
+                      kết giữa các yếu tố. Ví dụ: Kim cương và than chì đều từ
+                      carbon nhưng khác nhau do phương thức liên kết.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Lượng:</strong> Là khái niệm dùng để chỉ tính quy
+                      định vốn có của sự vật về các mặt như quy mô, trình độ
+                      phát triển, số lượng các thuộc tính, tổng số các bộ phận,
+                      tốc độ vận động, màu sắc...
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Đặc điểm của Lượng:</strong> Có tính khách quan,
+                      có thể đo đếm được hoặc nhận biết bằng năng lực trừu tượng
+                      hóa trong tư duy.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Tính tương đối:</strong> Sự phân biệt giữa chất và
+                      lượng chỉ có ý nghĩa tương đối, tùy theo mối quan hệ mà
+                      một yếu tố có thể là lượng hoặc chất.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">
+                    Mối quan hệ biện chứng giữa Lượng và Chất
+                  </h4>
+                  <p class="content-subtitle">Sự thống nhất và chuyển hóa</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Độ:</strong> Là giới hạn mà trong đó, sự thay đổi
+                      về lượng chưa làm thay đổi căn bản về chất, sự vật vẫn là
+                      nó.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Điểm nút:</strong> Là điểm giới hạn mà tại đó, sự
+                      thay đổi về lượng đã đủ để làm cho chất của sự vật thay
+                      đổi, chuyển thành chất mới. Đây là thời điểm bắt đầu xảy
+                      ra bước nhảy.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Bước nhảy:</strong> Là giai đoạn chuyển hóa cơ bản
+                      về chất của sự vật, do những thay đổi về lượng trước đó
+                      gây ra. Nó là sự gián đoạn trong quá trình vận động liên
+                      tục của sự vật.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Tác động ngược:</strong> Khi chất mới ra đời, nó
+                      sẽ tác động trở lại, tạo ra một lượng mới phù hợp để có sự
+                      thống nhất mới giữa chất và lượng.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Quá trình tác động qua lại liên tục giữa lượng và chất tạo
+                      nên sự vận động không ngừng của sự vật.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">
+                    Các hình thức của Bước nhảy và Ý nghĩa
+                  </h4>
+                  <p class="content-subtitle">Hình thức và phương pháp luận</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Bước nhảy toàn bộ:</strong> Làm thay đổi tất cả
+                      các mặt, yếu tố của sự vật.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Bước nhảy cục bộ:</strong> Chỉ làm thay đổi một số
+                      mặt, yếu tố của sự vật.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Bước nhảy tức thời:</strong> Chất của sự vật biến
+                      đổi nhanh chóng ở tất cả các bộ phận.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Bước nhảy dần dần:</strong> Quá trình thay đổi về
+                      chất diễn ra bằng cách tích lũy dần các yếu tố của chất
+                      mới và loại bỏ dần yếu tố của chất cũ.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Ý nghĩa phương pháp luận:</strong> Phải tích lũy
+                      về lượng để tạo biến đổi về chất, thực hiện bước nhảy khi
+                      điều kiện chín muồi, kết hợp khách quan và chủ quan, chú ý
+                      phương thức liên kết giữa các yếu tố.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content: Law 2 -->
+        <div class="tab-content" id="law-2">
+          <div class="law-container">
+            <div class="law-header law-2 scroll-reveal">
+              <div class="law-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <div class="law-badge">Quy luật 2</div>
+                <h3 class="law-title font-serif">
+                  Quy luật Thống nhất và Đấu tranh của các Mặt đối lập
+                </h3>
+                <p class="law-description">
+                  Quy luật chỉ ra nguồn gốc nội tại của sự vận động và phát
+                  triển thông qua mâu thuẫn giữa các mặt đối lập trong sự vật.
+                </p>
+              </div>
+            </div>
+
+            <div class="content-grid">
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">Mở đầu</h4>
+                  <p class="content-subtitle">Nguồn gốc của sự vận động</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Trong phép biện chứng duy vật, có ba quy luật cơ bản.
+                      Trong đó, quy luật Thống nhất và Đấu tranh của các Mặt đối
+                      lập được coi là nền tảng nhất.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Nó giúp chúng ta hiểu vì sao sự vật trong thế giới luôn
+                      vận động và phát triển.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Nói một cách ngắn gọn, quy luật này chỉ ra rằng chính mâu
+                      thuẫn bên trong là nguồn gốc tạo nên sự thay đổi.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">Mâu thuẫn là gì?</h4>
+                  <p class="content-subtitle">Khái niệm và ví dụ</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Theo phép biện chứng, mâu thuẫn không phải chỉ là sự “cãi
+                      vã” trong đời sống thường ngày.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Mâu thuẫn là sự tác động qua lại giữa hai mặt trái ngược
+                      nhưng lại cùng tồn tại trong một sự vật.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Chẳng hạn, trong xã hội luôn có tiến bộ và lạc hậu, trong
+                      tự nhiên có âm – dương, nóng – lạnh…
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Chính sự đối lập ấy tạo nên sự phát triển.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">
+                    Thống nhất và Đấu tranh
+                  </h4>
+                  <p class="content-subtitle">Mối quan hệ giữa hai mặt</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Thống nhất nghĩa là hai mặt đối lập cần nhau để tồn tại.
+                      Không có nóng thì cũng chẳng biết thế nào là lạnh. Sự
+                      thống nhất này chỉ mang tính tạm thời, tương đối.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Đấu tranh là quá trình hai mặt liên tục phủ định nhau,
+                      loại trừ nhau. Đây là yếu tố tuyệt đối, diễn ra không
+                      ngừng.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Nhờ đấu tranh, sự vật mới phá vỡ cái cũ để phát triển
+                      thành cái mới.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Lênin từng nói: “Sự phát triển chính là cuộc đấu tranh
+                      giữa các mặt đối lập.”
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">
+                    Quá trình vận động của sự vật
+                  </h4>
+                  <p class="content-subtitle">Chu trình phát triển</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Trong mỗi sự vật xuất hiện mâu thuẫn.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">Hai mặt đối lập đấu tranh gay gắt.</p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Trong một thời điểm nào đó, chúng đạt đến sự thống nhất
+                      tạm thời.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Khi mâu thuẫn lên đến đỉnh điểm, thống nhất cũ bị phá vỡ,
+                      sự vật chuyển hóa thành cái mới.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">Các loại mâu thuẫn</h4>
+                  <p class="content-subtitle">Phân loại mâu thuẫn</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Cơ bản và không cơ bản: Cơ bản thì gắn với bản chất, quyết
+                      định sự tồn tại; không cơ bản chỉ ảnh hưởng ở một vài mặt.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Chủ yếu và thứ yếu: Chủ yếu là mâu thuẫn quan trọng nhất
+                      trong một giai đoạn, còn thứ yếu chỉ đóng vai trò hỗ trợ.
+                      Chúng có thể thay đổi vị trí cho nhau.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Bên trong và bên ngoài: Bên trong là giữa các yếu tố cấu
+                      thành sự vật, giữ vai trò quyết định; bên ngoài là tác
+                      động từ môi trường.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">
+                    Ý nghĩa phương pháp luận và Kết luận
+                  </h4>
+                  <p class="content-subtitle">Ứng dụng và ý nghĩa</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Muốn hiểu một sự vật, hãy tìm mâu thuẫn trong nó.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Muốn giải quyết vấn đề, phải phân tích đúng mâu thuẫn chủ
+                      yếu và chọn cách giải quyết phù hợp.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Luôn nhìn nhận sự vật trong trạng thái vận động, phát
+                      triển, tránh cái nhìn một chiều hay nóng vội.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Mâu thuẫn là nguồn gốc của vận động.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Thống nhất chỉ mang tính tạm thời, còn đấu tranh là tuyệt
+                      đối.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Nhờ hiểu quy luật này, chúng ta có cái nhìn khoa học hơn
+                      về tự nhiên, xã hội và cả trong cách xử lý công việc hằng
+                      ngày.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tab Content: Law 3 -->
+        <div class="tab-content" id="law-3">
+          <div class="law-container">
+            <div class="law-header law-3 scroll-reveal">
+              <div class="law-icon">
+                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                  ></path>
+                </svg>
+              </div>
+              <div>
+                <div class="law-badge">Quy luật 3</div>
+                <h3 class="law-title font-serif">
+                  Quy luật Phủ định của Phủ định
+                </h3>
+                <p class="law-description">
+                  Quy luật phản ánh xu hướng vận động, phát triển đi lên của sự
+                  vật, hiện tượng theo hình xoắn ốc, kế thừa và tiến bộ.
+                </p>
+              </div>
+            </div>
+
+            <div class="content-grid">
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">Vị trí của Quy luật</h4>
+                  <p class="content-subtitle">Vai trò trong phép biện chứng</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Trong phép biện chứng duy vật, có ba quy luật cơ bản:
+                      Thống nhất và Đấu tranh, Lượng - Chất, và Phủ định của Phủ
+                      định.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Quy luật phủ định của phủ định không tồn tại riêng lẻ, mà
+                      gắn chặt với hai quy luật kia.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Phản ánh xu hướng vận động, phát triển đi lên của sự vật,
+                      hiện tượng.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">
+                    Khái niệm Phủ định biện chứng
+                  </h4>
+                  <p class="content-subtitle">Sự tự phủ định và kế thừa</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Phủ định biện chứng là sự tự phủ định do mâu thuẫn nội tại
+                      của sự vật gây ra.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Không phải “xóa sạch sẽ”, mà loại bỏ cái lạc hậu, đồng
+                      thời giữ lại những yếu tố hợp lý, tích cực.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Là mắt xích trung gian trong sự phát triển, nối cái cũ với
+                      cái mới.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Ví dụ: Hạt lúa mọc thành cây → cây lúa trổ bông → cây chết
+                      đi để lại hạt thóc mới, kế thừa bản chất di truyền nhưng ở
+                      vòng phát triển cao hơn.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">
+                    Các đặc điểm của Phủ định biện chứng
+                  </h4>
+                  <p class="content-subtitle">Tính chất nổi bật</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Tính khách quan:</strong> Xảy ra do mâu thuẫn bên
+                      trong sự vật, không phụ thuộc ý chí con người.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Tính kế thừa:</strong> Chọn lọc, giữ lại những yếu
+                      tố phù hợp từ cái cũ để phát triển cái mới.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Tính phổ biến:</strong> Diễn ra trong tự nhiên, xã
+                      hội, và tư duy.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Tính đa dạng - phong phú:</strong> Sự phát triển
+                      diễn ra thành những vòng, sau ít nhất hai lần phủ định sẽ
+                      hình thành một chu kỳ mới.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">Kế thừa biện chứng</h4>
+                  <p class="content-subtitle">Sự chọn lọc và cải tạo</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Không phải giữ nguyên cái cũ (“kế thừa siêu hình”), mà
+                      loại bỏ cái lạc hậu, không phù hợp.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Giữ lại và cải tạo những yếu tố hợp lý của cái cũ.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Cái mới vừa có tính mới, vừa gắn bó với cái cũ.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Ví dụ: Chế độ phong kiến → tư bản → xã hội cộng sản, mỗi
+                      giai đoạn kế thừa thành tựu trước đó (khoa học, sản xuất
+                      hàng hóa…).
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">
+                    Hình thức phát triển: Đường xoáy ốc
+                  </h4>
+                  <p class="content-subtitle">Tiến bộ không tuyến tính</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Phát triển không đi theo đường thẳng, cũng không quay vòng
+                      tròn y nguyên.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Diễn ra theo đường xoáy ốc: Có sự lặp lại những đặc điểm
+                      cũ, nhưng trên nền tảng cao hơn.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Lênin: “Sự phát triển giống như lặp lại những giai đoạn đã
+                      qua, nhưng ở một hình thức khác, cao hơn.”
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Ví dụ: Trong khoa học, lý thuyết mới (Einstein) kế thừa
+                      một phần từ lý thuyết cũ (Newton) nhưng ở mức cao hơn.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div class="content-card scroll-reveal">
+                <div class="content-header">
+                  <h4 class="content-title font-serif">
+                    Nội dung và Ý nghĩa của Quy luật
+                  </h4>
+                  <p class="content-subtitle">Quá trình và phương pháp luận</p>
+                </div>
+                <div class="points-list">
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Mỗi sự vật phát triển qua ít nhất hai lần phủ định: Phủ
+                      định lần 1 biến cái cũ thành cái đối lập; Phủ định lần 2
+                      tạo cái mới, chứa yếu tố tích cực của cái ban đầu nhưng
+                      tiến bộ hơn.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Sự vật mới dường như trở lại điểm xuất phát, nhưng thực
+                      chất cao hơn, tiến bộ hơn.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Phủ định biện chứng là một giai đoạn trong quá trình phát
+                      triển, dẫn đến sự ra đời của sự vật mới theo đường xoáy
+                      trôn ốc.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      <strong>Ý nghĩa phương pháp luận:</strong> Phát triển là
+                      xu hướng tất yếu, đi lên, quanh co, phức tạp, không thẳng
+                      tắp, có thể có thụt lùi.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Cần ủng hộ cái mới, tạo điều kiện cho nó phát triển, và kế
+                      thừa có chọn lọc giá trị tích cực của cái cũ.
+                    </p>
+                  </div>
+                  <div class="point-item">
+                    <div class="point-bullet"></div>
+                    <p class="point-text">
+                      Trong xã hội, sự phát triển gắn với ý thức và hành động có
+                      mục đích của con người, khác với sự phát triển tự phát
+                      trong tự nhiên.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
 
     <!-- Conclusion Section -->
     <section class="conclusion">
-        <div class="container">
-            <div class="conclusion-content scroll-reveal">
-                <h2 class="font-serif">Ý nghĩa Tổng thể</h2>
-                <p>Ba quy luật cơ bản của chủ nghĩa duy vật biện chứng tạo thành một hệ thống lý luận hoàn chỉnh, giúp chúng ta hiểu sâu sắc về bản chất của thế giới và con đường phát triển của sự vật, hiện tượng.</p>
-                
-                <div class="summary-grid">
-                    <div class="summary-card scroll-reveal">
-                        <svg class="summary-icon icon-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
-                        </svg>
-                        <h3 class="summary-title font-serif">Cách thức phát triển</h3>
-                        <p class="summary-text">Quy luật lượng-chất chỉ ra cách thức vận động</p>
-                    </div>
-                    <div class="summary-card scroll-reveal">
-                        <svg class="summary-icon icon-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path>
-                        </svg>
-                        <h3 class="summary-title font-serif">Nguồn gốc phát triển</h3>
-                        <p class="summary-text">Quy luật mâu thuẫn chỉ ra động lực nội tại</p>
-                    </div>
-                    <div class="summary-card scroll-reveal">
-                        <svg class="summary-icon icon-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
-                        </svg>
-                        <h3 class="summary-title font-serif">Xu hướng phát triển</h3>
-                        <p class="summary-text">Quy luật phủ định chỉ ra con đường tiến bộ</p>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="conclusion-content scroll-reveal">
+          <h2 class="font-serif">Ý nghĩa Tổng thể</h2>
+          <p>
+            Ba quy luật cơ bản của chủ nghĩa duy vật biện chứng tạo thành một hệ
+            thống lý luận hoàn chỉnh, giúp chúng ta hiểu sâu sắc về bản chất của
+            thế giới và con đường phát triển của sự vật, hiện tượng.
+          </p>
+
+          <div class="summary-grid">
+            <div class="summary-card scroll-reveal">
+              <svg
+                class="summary-icon icon-1"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                ></path>
+              </svg>
+              <h3 class="summary-title font-serif">Cách thức phát triển</h3>
+              <p class="summary-text">
+                Quy luật lượng-chất chỉ ra cách thức vận động
+              </p>
             </div>
+            <div class="summary-card scroll-reveal">
+              <svg
+                class="summary-icon icon-2"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                ></path>
+              </svg>
+              <h3 class="summary-title font-serif">Nguồn gốc phát triển</h3>
+              <p class="summary-text">
+                Quy luật mâu thuẫn chỉ ra động lực nội tại
+              </p>
+            </div>
+            <div class="summary-card scroll-reveal">
+              <svg
+                class="summary-icon icon-3"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                ></path>
+              </svg>
+              <h3 class="summary-title font-serif">Xu hướng phát triển</h3>
+              <p class="summary-text">
+                Quy luật phủ định chỉ ra con đường tiến bộ
+              </p>
+            </div>
+          </div>
         </div>
+      </div>
     </section>
 
     <script>
-        // Scroll reveal animation
-        const observerOptions = {
-            threshold: 0.15,
-            rootMargin: '0px 0px -30px 0px'
-        };
+      // Scroll reveal animation
+      const observerOptions = {
+        threshold: 0.15,
+        rootMargin: "0px 0px -30px 0px",
+      };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('revealed');
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.scroll-reveal').forEach(el => {
-            observer.observe(el);
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("revealed");
+          }
         });
+      }, observerOptions);
 
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+      document.querySelectorAll(".scroll-reveal").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Smooth scrolling for anchor links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Tab functionality
+      const tabButtons = document.querySelectorAll(".tab-button");
+      const tabContents = document.querySelectorAll(".tab-content");
+
+      tabButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          // Remove active class from all buttons and contents
+          tabButtons.forEach((btn) => btn.classList.remove("active"));
+          tabContents.forEach((content) => content.classList.remove("active"));
+
+          // Add active class to clicked button and corresponding content
+          button.classList.add("active");
+          const tabId = button.getAttribute("data-tab");
+          document.getElementById(tabId).classList.add("active");
+
+          // Re-observe elements for scroll reveal
+          document
+            .querySelectorAll(`#${tabId} .scroll-reveal`)
+            .forEach((el) => {
+              el.classList.remove("revealed");
+              observer.observe(el);
             });
         });
-
-        // Tab functionality
-        const tabButtons = document.querySelectorAll('.tab-button');
-        const tabContents = document.querySelectorAll('.tab-content');
-
-        tabButtons.forEach(button => {
-            button.addEventListener('click', () => {
-                // Remove active class from all buttons and contents
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tabContents.forEach(content => content.classList.remove('active'));
-
-                // Add active class to clicked button and corresponding content
-                button.classList.add('active');
-                const tabId = button.getAttribute('data-tab');
-                document.getElementById(tabId).classList.add('active');
-
-                // Re-observe elements for scroll reveal
-                document.querySelectorAll(`#${tabId} .scroll-reveal`).forEach(el => {
-                    el.classList.remove('revealed');
-                    observer.observe(el);
-                });
-            });
-        });
+      });
     </script>
-</body>
+  </body>
 </html>
