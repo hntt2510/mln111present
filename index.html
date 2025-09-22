@@ -285,16 +285,24 @@
 
       .content-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
+        grid-template-columns: 1fr;
+        /* chỉ 1 cột */
+        gap: 2rem;
       }
 
       .content-card {
+        display: flex;
+        /* nội dung xếp ngang */
+        align-items: flex-start;
+        /* canh top cho icon/text */
         background: var(--card);
+        border: 1px solid var(--border);
         border-radius: 1rem;
-        padding: 1.5rem;
         box-shadow: var(--shadow);
-        transition: all 0.3s ease;
+        padding: 1.5rem 2rem;
+        line-height: 1.7;
+        min-height: 180px;
+        /* tạo cảm giác thấp và ngang */
       }
 
       .content-card:hover {
@@ -303,7 +311,9 @@
       }
 
       .content-header {
-        margin-bottom: 1rem;
+        flex: 0 0 220px;
+        /* khối tiêu đề rộng cố định */
+        margin-right: 1.5rem;
       }
 
       .content-title {
@@ -318,10 +328,14 @@
         font-weight: 600;
       }
 
+      /* Danh sách gọn gàng hơn */
       .points-list {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
+        flex: 1;
+        gap: 0.75rem;
+      }
+
+      .point-text {
+        line-height: 1.7;
       }
 
       .point-item {
@@ -401,9 +415,11 @@
       .summary-icon.icon-1 {
         color: var(--primary);
       }
+
       .summary-icon.icon-2 {
         color: var(--accent);
       }
+
       .summary-icon.icon-3 {
         color: var(--secondary);
       }
@@ -432,16 +448,21 @@
 
         .content-grid {
           grid-template-columns: 1fr;
+          gap: 1.25rem;
         }
 
         .tab-nav {
-          flex-direction: column;
-          align-items: center;
-          gap: 0.5rem;
+          display: flex;
+          flex-direction: row;
+          gap: 0.75rem;
+          overflow-x: auto;
+          -webkit-overflow-scrolling: touch;
+          scroll-snap-type: x proximity;
         }
 
         .tab-button {
-          max-width: 100%;
+          flex: 0 0 auto;
+          white-space: nowrap;
         }
       }
 
@@ -460,6 +481,7 @@
       }
     </style>
   </head>
+
   <body>
     <!-- Hero Section -->
     <section class="hero">
